@@ -11,7 +11,7 @@ from flask_cors import CORS
 app  = Flask(__name__)
 CORS(app)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///event.db" # postgres
-app.config["JWT_SECRET_KEY"] = "fsbdgfnhgvjnvhmvh"+str(random.randint(1,1000000000000)) 
+app.config["JWT_SECRET_KEY"] = "fsbdgfnhgvjnvhmvh"+str(random.randint(1,1000000000000))
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=1)
 app.config["SECRET_KEY"] = "JKSRVHJVFBSRDFV"+str(random.randint(1,1000000000000))
 
@@ -72,7 +72,7 @@ def logout():
 @app.route('/users', methods=['POST'])
 def create_user():
     data = request.get_json()
-    new_user = User(name=data['name'], email=data['email'], password=bcrypt.generate_password_hash( data['password'] ).decode("utf-8") ) 
+    new_user = User(name=data['name'], email=data['email'], password=bcrypt.generate_password_hash( data['password'] ).decode("utf-8") )
     db.session.add(new_user)
     db.session.commit()
     return jsonify({'success': 'User created successfully'}), 201
@@ -148,4 +148,4 @@ def delete_task(task_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, load_dotenv=True, port=8080)

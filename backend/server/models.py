@@ -1,9 +1,7 @@
-
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
 db = SQLAlchemy()
 from sqlalchemy.orm import validates
-
 from datetime import datetime
 
 # Models
@@ -53,13 +51,13 @@ class Task(db.Model):
 #         "email" : self.email,
 #         "courses" : [course.to_dict() for course in self.courses]
 #         }
-    
+
 #     @validates('email')
 #     def validate_email(self,key, email):
 #         if "@" not in email:
 #             raise ValueError("Invalid email")
 #         return email
- 
+
 
 
 # class Course(db.Model, SerializerMixin):
@@ -78,7 +76,7 @@ class Task(db.Model):
 #         "code" : self.code,
 #         "description" : self.description,
 #         "student_id" : self.student_id
-        
+
 #         }
 
 
@@ -99,13 +97,13 @@ class Task(db.Model):
 #         "email" : self.email,
 #         "courses" : [course.to_dict() for course in self.courses]
 #         }
-    
+
 #     @validates('email')
 #     def validate_email(self,key, email):
 #         if "@" not in email:
 #             raise ValueError("Invalid email")
 #         return email
- 
+
 
 
 # class Course(db.Model, SerializerMixin):
@@ -124,8 +122,5 @@ class Task(db.Model):
 #         "code" : self.code,
 #         "description" : self.description,
 #         "student_id" : self.student_id
-        
+
 #         }
-
-
-
